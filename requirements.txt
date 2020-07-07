@@ -1,1 +1,2 @@
 Flask==1.1.2
+Flask-Pydantic==0.0.6

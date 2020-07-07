@@ -1,7 +1,8 @@
 # coding: utf-8
 # ----------------------------------
 # @Author: xiaosiwen
-# @Date: 2020/7/6 16:44
+# @Date: 2020/7/7 11:08
 # @Desc:
 # ----------------------------------
-from model_a.views import bp as model_a_bp
+
+from ping.views import bp as ping_bp

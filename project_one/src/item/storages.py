@@ -1,6 +1,6 @@
 # coding: utf-8
 # ----------------------------------
 # @Author: xiaosiwen
-# @Date: 2020/7/6 16:47
-# @Desc: 业务逻辑 可以对models和serializers对象进行转化
+# @Date: 2020/7/7 9:28
+# @Desc: 调用model 实现数据的持久化(实现redis或者kafka写数据)
 # ----------------------------------
