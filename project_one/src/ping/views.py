@@ -6,8 +6,6 @@
 # ----------------------------------
 
 from flask import Blueprint
-from flask_pydantic import validate
-
 from ping.serializers import PingSerializer
 
 bp = Blueprint("ping", __name__)

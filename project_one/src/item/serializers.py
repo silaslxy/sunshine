@@ -33,16 +33,35 @@ class ItemSerializer(BaseModel):
     trace_id: UUID = Field(None, description="链路追踪id")
     create_time: datetime = Field(datetime.now(), description="创建时间")
 
-    @validator("name")
-    def validator_name(cls, value):
+    @validator("name", always=True)
+    def validate_name(cls, value):
         """
-        其他字段校验
+        校验name字段
         :param value:
         :return:
         """
         if value == "test":
             raise ValueError("不能为test")
         return value
+
+    # always=true无值的时候也验证
+    # pre=true在标准验证器之前验证，标准验证器Filed带的验证等
+    @validator("description", always=True)
+    def validate_description(cls, value, values):
+        """
+        校验description字段, 需要限定一name字段的校验
+        :param value:
+        :param values:
+        :return:
+        """
+        if "name" in values and value == values["name"]:
+            raise ValueError("description的值不能和name一样")
+        return value
+
+    # 　可以定义预先检查的校验
+
+    # class Config:
+    #     validate_all = True
 
     # # 生成样本数据
     # class Config:

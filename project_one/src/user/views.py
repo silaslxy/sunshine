@@ -6,7 +6,6 @@
 # ----------------------------------
 
 from flask import Blueprint, request
-from flask_pydantic import validate
 from user.enums import UserCategoryEnum
 from user.serializers import CategoryDetailSerializer, UserSerializer
 from user.filters import PageFilter
@@ -15,7 +14,6 @@ bp = Blueprint("user", __name__)
 
 
 @bp.route("", methods=["POST"])
-@validate(body=UserSerializer)
 def create_user():
     """
     创建用户
