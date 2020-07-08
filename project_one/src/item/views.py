@@ -8,28 +8,29 @@
 
 from flask import Blueprint, request
 
+from common.web.validate import http_validator
 from item.filters import ItemFilter
 from item.serializers import ItemSerializer
-from common.web.results import Success
 
 bp = Blueprint("item", __name__)
 
 
 @bp.route("", methods=["POST"])
+@http_validator(body_serializer=ItemSerializer, response_serializer=ItemSerializer)
 def create_item():
     """
     创建项目详细介绍
     :return:
     """
-    return Success[dict](data=request.json).dict()
+    return request.body
 
 
 @bp.route("/<item_id>", methods=["GET"])
+@http_validator(query_serializer=ItemFilter, response_serializer=ItemFilter)
 def get_item_by_id(item_id: int):
     """
     根据id获取项目详情
     :param item_id:
     :return:
     """
-    return Success[dict](data=request.json)
-
+    return request.query
