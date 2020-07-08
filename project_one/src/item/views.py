@@ -4,7 +4,7 @@
 # @Date: 2020/7/6 16:44
 # @Desc: 接口层-调用service层
 # ----------------------------------
-
+import logging
 
 from flask import Blueprint, request
 
@@ -14,6 +14,8 @@ from item.serializers import ItemSerializer
 
 bp = Blueprint("item", __name__)
 
+logger = logging.getLogger(__name__)
+
 
 @bp.route("", methods=["POST"])
 @http_validator(body_serializer=ItemSerializer, response_serializer=ItemSerializer)
@@ -22,6 +24,7 @@ def create_item():
     创建项目详细介绍
     :return:
     """
+    logger.info("aaaaaaa")
     return request.body
 
 
