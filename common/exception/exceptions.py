@@ -2,7 +2,7 @@
 # ----------------------------------
 # @Author: xiaosiwen
 # @Date: 2020/7/8 11:08 PM
-# @Desc:
+# @Desc: 异常类待添加
 # ----------------------------------
 
 class BaseError(Exception):

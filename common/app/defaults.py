@@ -4,10 +4,10 @@
 # @Date: 2020/7/9 9:31
 # @Desc: 设置app的一些默认属性
 # ----------------------------------
+import json
 import logging
 
-from flask import Flask, jsonify
-import json
+from flask import Flask
 
 from common.log import stream_handler
 from common.web import BaseCode
