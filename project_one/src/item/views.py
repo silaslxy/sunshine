@@ -36,4 +36,4 @@ def get_item_by_id(item_id: int):
     :param item_id:
     :return:
     """
-    return {}
+    return request.query

@@ -42,7 +42,7 @@ def default_app(app: Flask):
                 response.data = json.dumps({
                     "code": BaseCode.FAILURE.code(),
                     "msg": BaseCode.FAILURE.msg(),
-                    "data": response.json
+                    "data": None
                 })
                 response.status_code = 200
         else:
