@@ -40,8 +40,8 @@ def default_app(app: Flask):
         elif 400 <= response.status_code < 500:
             if response.content_type == "application/json":
                 response.data = json.dumps({
-                    "code": BaseCode.FAILURE.code(),
-                    "msg": BaseCode.FAILURE.msg(),
+                    "code": BaseCode.PARAM_ERROR.code(),
+                    "msg": BaseCode.PARAM_ERROR.msg(),
                     "data": None
                 })
                 response.status_code = 200
