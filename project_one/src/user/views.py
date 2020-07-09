@@ -7,7 +7,7 @@
 
 from flask import Blueprint, request
 
-from common.web.validate import http_validator
+from common.web import http_validator
 from user.enums import UserCategoryEnum
 from user.serializers import CategoryDetailSerializer, UserSerializer
 

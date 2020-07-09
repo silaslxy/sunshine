@@ -75,7 +75,7 @@ def http_validator(body_serializer: Optional[BODY_SERIALIZER] = None,
                 if not isinstance(res, response_serializer):
                     return make_response({"response_error": [{"loc": None,
                                                               "msg": "return type is not %s" % response_serializer,
-                                                              "type": "response_error"}]}, 400)
+                                                              "type": "response_error"}]}, 500)
                 return make_response(json.loads(res.json()), 200)
 
             return res

@@ -4,11 +4,10 @@
 # @Date: 2020/7/6 16:41
 # @Desc:
 # ----------------------------------
-import logging
 
 from flask import Flask
 
-from common.log import stream_handler
+from common.app import default_app
 
 
 def register_bp(app: Flask):
@@ -27,13 +26,10 @@ def create_app():
     app = Flask(__name__)
 
     # 设置debug
-    app.debug = True
+    app.debug = False
 
-    # 设置日志
-    if not app.debug:
-        app.logger.root.addHandler(stream_handler)
-        app.logger.root.setLevel(logging.INFO)
-
+    # 设置默认配置
+    default_app(app)
 
     # 注册蓝图
     register_bp(app)
@@ -43,18 +39,6 @@ def create_app():
 
 # 创建获取app对象
 app = create_app()
-
-# @app.errorhandler(BaseError)
-# def custom_error_handler(e):
-#     if e.level in [BaseError.LEVEL_WARN, BaseError.LEVEL_ERROR]:
-#         if isinstance(e, OrmError):
-#             app.logger.exception("%s %s" % (e.parent_error, e))
-#         else:
-#             app.logger.exception("错误信息: %s %s" % (e.extras, e))
-#     response = jsonify(e.to_dict())
-#     response.status_code = e.status_code
-#     return response
-
 
 if __name__ == "__main__":
     # load_dotenv

@@ -8,7 +8,7 @@ import logging
 
 from flask import Blueprint, request
 
-from common.web.validate import http_validator
+from common.web import http_validator
 from item.filters import ItemFilter
 from item.serializers import ItemSerializer
 
@@ -36,4 +36,4 @@ def get_item_by_id(item_id: int):
     :param item_id:
     :return:
     """
-    return request.query
+    return {}

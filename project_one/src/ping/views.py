@@ -9,7 +9,7 @@ import logging
 
 from flask import Blueprint
 
-from common.web.validate import http_validator
+from common.web import http_validator
 from ping.serializers import PingSerializer
 
 bp = Blueprint("ping", __name__)
